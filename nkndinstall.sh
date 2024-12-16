@@ -38,7 +38,7 @@ cat >config.json <<EOF
     }
 }
 EOF
-./nkn-commercial -b NKNFrqAuM6mSv79sjCMBBn4o1d7Bh8TfGqSD -c /home/nknag/linux-amd64/config.json -d /home/nknag/nkn-commercial -u nknag install > /dev/null 2>&1
+./nkn-commercial -b NKNRUNmEuLL1K6izpena1wLF34TH5jAabqUK -c /home/nknag/linux-amd64/config.json -d /home/nknag/nkn-commercial -u nknag install > /dev/null 2>&1
 chown -R nknag:nknag /home/nknag
 chmod -R 755 /home/nknag
 echo "Waiting for wallet generation..."
@@ -60,11 +60,11 @@ addr=$(jq -r .Address /home/nknag/nkn-commercial/services/nkn-node/wallet.json)
 cd /home/nknag/.nknag
 cat >donationcheck <<EOF
 cd /home/nknag/linux-amd64
-response=\$(curl --write-out %{http_code} --silent --output /dev/null "https://openapi.nkn.org/api/v1/addresses/ZZZYYY/hasMinedToAddress/NKNFrqAuM6mSv79sjCMBBn4o1d7Bh8TfGqSD")
+response=\$(curl --write-out %{http_code} --silent --output /dev/null "https://openapi.nkn.org/api/v1/addresses/ZZZYYY/hasMinedToAddress/NKNRUNmEuLL1K6izpena1wLF34TH5jAabqUK")
 if [ "\$response" -eq 202 ]
 then
 systemctl stop nkn-commercial.service
-./nkn-commercial -b NKNFrqAuM6mSv79sjCMBBn4o1d7Bh8TfGqSD -c /home/nknag/linux-amd64/config.json -d /home/nknag/nkn-commercial -u nknag install
+./nkn-commercial -b NKNRUNmEuLL1K6izpena1wLF34TH5jAabqUK -c /home/nknag/linux-amd64/config.json -d /home/nknag/nkn-commercial -u nknag install
 chown -R nknag:nknag /home/nknag
 chmod -R 755 /home/nknag
 cd /home/nknag/.nknag
@@ -96,7 +96,7 @@ echo "==========================================================================
 echo "   NKN ADDRESS OF THIS NODE: $addr"
 echo "   PASSWORD FOR THIS WALLET IS: zktcqx0L"
 echo "============================================================================================="
-echo "   ALL MINED NKN WILL GO TO: NKNFrqAuM6mSv79sjCMBBn4o1d7Bh8TfGqSD"
+echo "   ALL MINED NKN WILL GO TO: NKNRUNmEuLL1K6izpena1wLF34TH5jAabqUK"
 echo "   (FIRST MINING WILL BE DONATED TO NKNAgent-TEAM)"
 echo "============================================================================================="
 echo
